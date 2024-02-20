@@ -15,6 +15,9 @@
     <div>
         父组件调用子组件方法的传参：{{ fromParentVal }}
     </div>
+
+    <!-- 子组件使用插槽 -->
+    <slot></slot>
 </template>
 
 <script setup lang="ts">
