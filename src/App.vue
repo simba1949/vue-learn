@@ -11,5 +11,6 @@
 // import LearnView from './views/05WatchView.vue'
 // import LearnView from './views/06WatchEffectView.vue'
 // import LearnView from './views/07ComponentView/OuterComponentView.vue'
-import LearnView from '@/views/08PiniaView/OuterPiniaView.vue'
+// import LearnView from '@/views/08PiniaView/OuterPiniaView.vue'
+import LearnView from '@/views/09LifecycleView.vue'
 </script>
