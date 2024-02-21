@@ -1,8 +1,9 @@
 <template>
-  <LearnView />
+  <LearnView/>
 </template>
 
 <script setup lang="ts">
+import {toRef} from "vue";
 // import LearnView from './views/00TemplateGrammer.vue'
 // import LearnView from './views/01RefView.vue'
 // import LearnView from './views/02ReactiveView.vue'
@@ -13,5 +14,5 @@
 // import LearnView from './views/07ComponentView/OuterComponentView.vue'
 // import LearnView from '@/views/08PiniaView/OuterPiniaView.vue'
 // import LearnView from '@/views/09LifecycleView.vue'
-import LearnView from '@/views/10ElementPlusView/LoginView.vue'
+import LearnView from '@/views/10ElementPlusView/LoginAndRegisterView.vue'
 </script>
