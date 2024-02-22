@@ -1,17 +1,13 @@
 <template>
   <div class="login-container">
-    <el-form
-        id="loginForm"
-        :label-position="'right'"
-        label-width="100px"
-        :model="formObj">
+    <el-form id="loginForm" :label-position="'right'" label-width="100px" :model="formObj">
 
       <el-form-item label="用户名">
-        <el-input v-model="formObj.username" type="text" placeholder="请输入用户名" clearable/>
+        <el-input v-model="formObj.username" type="text" placeholder="请输入用户名" clearable />
       </el-form-item>
 
       <el-form-item label="密码">
-        <el-input v-model="formObj.password" type="password" placeholder="请输入密码" clearable show-password/>
+        <el-input v-model="formObj.password" type="password" placeholder="请输入密码" clearable show-password />
       </el-form-item>
 
       <el-form-item style="margin-left: 20%">
@@ -31,10 +27,10 @@
 </template>
 
 <script lang="ts" setup>
-import {reactive, ref} from 'vue'
-import {httpInstance} from "@/api/api";
+import { reactive, ref } from 'vue'
+import { httpInstance } from "@/api/api";
 import router from "@/router";
-import {tokenStore} from '@/stores/counter'
+import { tokenStore } from '@/stores/counter'
 
 
 // 登录注册切换
@@ -50,11 +46,17 @@ let tokenStoreVal = tokenStore();
 // 登录方法
 function loginFun() {
   httpInstance.post('/user/login', formObj)
-      .then(res => {
-        localStorage.setItem("token", res.data.data)
+    .then(res => {
+      console.log("res", res)
+      if (res.data.status) {
+        localStorage.setItem("token", res.data.data);
         tokenStoreVal.setToken(res.data.data);
-        router.push('/LoginSuccessView')
-      })
+        router.push({ name: 'successView' });
+        return;
+      } else {
+        console.log("res", res.data.message);
+      }
+    })
 }
 
 // 注册方法
